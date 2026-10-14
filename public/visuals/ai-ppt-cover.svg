@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000">
+  <defs>
+    <radialGradient id="ambient"><stop stop-color="#bca7ee" stop-opacity=".35"/><stop offset="1" stop-color="#0c0c0c" stop-opacity="0"/></radialGradient>
+    <linearGradient id="silver" x2=".85" y2="1"><stop stop-color="#fff"/><stop offset=".4" stop-color="#d7e2ea"/><stop offset="1" stop-color="#788390"/></linearGradient>
+    <linearGradient id="fabric" x1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#dfdce9"/><stop offset="1" stop-color="#918ba6"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#41404e"/><stop offset=".55" stop-color="#16141d"/><stop offset="1" stop-color="#252530"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#d7e2ea"/><stop offset=".5" stop-color="#bca7ee"/><stop offset="1" stop-color="#64319b"/></linearGradient>
+    <filter id="shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".55"/></filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="20"/></filter>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#d7e2ea" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1200" height="1000" fill="#0f0f13"/>
+  <rect width="1200" height="1000" fill="url(#grid)"/>
+  <ellipse cx="600" cy="540" rx="600" ry="700" fill="url(#ambient)"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#d7e2ea" text-anchor="middle">
+    <text x="600" y="165" font-size="58" font-weight="800" letter-spacing="-2">AI PPT</text>
+    <text x="600" y="210" font-size="18" fill="#aeb0bf" letter-spacing="4">FROM DOCUMENT TO PRESENTATION</text>
+  </g>
+  
+  <ellipse cx="600" cy="758" rx="245" ry="42" fill="#ab8bd8" opacity=".25" filter="url(#glow)"/>
+  <g filter="url(#shadow)"><rect x="440" y="330" width="425" height="280" rx="30" fill="url(#glass)" stroke="#b9a8d1" transform="rotate(12 650 470)"/>
+  <rect x="330" y="382" width="460" height="300" rx="30" fill="url(#silver)" transform="rotate(-10 560 530)"/></g>
+  <g transform="rotate(-10 560 530)"><path d="M405 449H645M405 483H585" stroke="#7e7699" stroke-width="12" stroke-linecap="round"/>
+  <rect x="405" y="530" width="52" height="82" rx="8" fill="#ada4c5"/><rect x="477" y="558" width="52" height="54" rx="8" fill="#8b829f"/><rect x="549" y="514" width="52" height="98" rx="8" fill="#b4a1d0"/>
+  <path d="M660 545 707 575 660 605Z" fill="#766584"/></g>
+  <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle"><rect x="395" y="830" width="410" height="56" rx="28" fill="#18151f" stroke="#bca7ee" stroke-opacity=".7"/><text x="600" y="865" fill="#d7e2ea" font-size="18" letter-spacing="3">PARSE → PLAN → PPTX</text></g>
+  <g fill="#d7e2ea" font-family="Segoe UI, Arial, sans-serif" font-size="14" letter-spacing="3"><text x="50" y="960" opacity=".4">SHROUD / PROJECT VISUAL</text></g>
+</svg>

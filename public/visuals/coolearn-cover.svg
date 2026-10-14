@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000">
+  <defs>
+    <radialGradient id="ambient"><stop stop-color="#92cbbf" stop-opacity=".35"/><stop offset="1" stop-color="#0c0c0c" stop-opacity="0"/></radialGradient>
+    <linearGradient id="silver" x2=".85" y2="1"><stop stop-color="#fff"/><stop offset=".4" stop-color="#d7e2ea"/><stop offset="1" stop-color="#788390"/></linearGradient>
+    <linearGradient id="fabric" x1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#dfdce9"/><stop offset="1" stop-color="#918ba6"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#41404e"/><stop offset=".55" stop-color="#16141d"/><stop offset="1" stop-color="#252530"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#d7e2ea"/><stop offset=".5" stop-color="#92cbbf"/><stop offset="1" stop-color="#64319b"/></linearGradient>
+    <filter id="shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".55"/></filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="20"/></filter>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#d7e2ea" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1200" height="1000" fill="#0f0f13"/>
+  <rect width="1200" height="1000" fill="url(#grid)"/>
+  <ellipse cx="600" cy="540" rx="600" ry="700" fill="url(#ambient)"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#d7e2ea" text-anchor="middle">
+    <text x="600" y="165" font-size="58" font-weight="800" letter-spacing="-2">COOLEARN</text>
+    <text x="600" y="210" font-size="18" fill="#aeb0bf" letter-spacing="4">A CONNECTED LEARNING PATH</text>
+  </g>
+  
+  <ellipse cx="600" cy="752" rx="255" ry="42" fill="#86b8aa" opacity=".25" filter="url(#glow)"/>
+  <path d="M415 475 535 365 705 400 800 575 640 680 435 625 415 475M535 365 640 680M415 475 800 575M435 625 705 400" fill="none" stroke="url(#accent)" stroke-width="4" opacity=".65"/>
+  <g filter="url(#shadow)"><circle cx="415" cy="475" r="50" fill="url(#silver)"/><circle cx="535" cy="365" r="40" fill="url(#glass)" stroke="#92cbbf"/><circle cx="705" cy="400" r="54" fill="url(#silver)"/><circle cx="800" cy="575" r="38" fill="url(#glass)" stroke="#92cbbf"/><circle cx="640" cy="680" r="58" fill="url(#silver)"/><circle cx="435" cy="625" r="34" fill="url(#glass)" stroke="#92cbbf"/></g>
+  <g fill="#45655f"><circle cx="415" cy="475" r="13"/><path d="M693 389H717V413H693ZM617 680 640 659 663 680 640 701Z"/></g>
+  <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle"><rect x="395" y="830" width="410" height="56" rx="28" fill="#18151f" stroke="#92cbbf" stroke-opacity=".7"/><text x="600" y="865" fill="#d7e2ea" font-size="18" letter-spacing="3">LEARN → PRACTICE → REVIEW</text></g>
+  <g fill="#d7e2ea" font-family="Segoe UI, Arial, sans-serif" font-size="14" letter-spacing="3"><text x="50" y="960" opacity=".4">SHROUD / PROJECT VISUAL</text></g>
+</svg>

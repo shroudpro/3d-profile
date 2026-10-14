@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import type { CSSProperties } from 'react';
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import type { MotionValue } from 'framer-motion';
-import { aboutText, previews, profile, projects, services } from './data';
+import { useReducedMotion } from 'framer-motion';
+import { aboutText, featuredProjects, previews, profile, projects, services } from './data';
 import type { Project } from './data';
 import { AnimatedText, FadeIn, Magnet } from './components/Effects';
 import { PortfolioDialog } from './components/PortfolioDialog';
 import type { DialogState } from './components/PortfolioDialog';
+import { PortfolioNav } from './components/PortfolioNav';
+import { ProjectStack } from './components/ProjectStack';
 
 function ContactButton({ onClick }: { onClick: () => void }) {
   return <button type="button" onClick={onClick} className="contact-button" aria-haspopup="dialog">联系我</button>;
@@ -15,21 +15,14 @@ function ContactButton({ onClick }: { onClick: () => void }) {
 function HeroSection({ onContact }: { onContact: () => void }) {
   return (
     <section id="home" className="hero-section">
-      <FadeIn delay={0} y={-20}>
-        <nav className="hero-nav" aria-label="主导航">
-          <a href="#about">关于我</a>
-          <a href="#services">技术专长</a>
-          <a href="#projects">精选作品</a>
-          <button type="button" onClick={onContact} aria-haspopup="dialog">联系</button>
-        </nav>
-      </FadeIn>
+      <PortfolioNav onContact={onContact} />
       <div className="hero-heading-wrap">
         <FadeIn as="h1" className="hero-heading hero-title" delay={0.15} y={40}>{profile.headline}</FadeIn>
       </div>
       <div className="hero-portrait">
         <FadeIn delay={0.6} y={30}>
           <Magnet padding={150} strength={3}>
-            <img src="/images/portrait.png" alt="Shroud 网站的 3D 角色主视觉" width={1450} height={1570} draggable={false} />
+            <img src="/images/portrait-smile.png" alt="Shroud 网站的微笑 3D 角色主视觉" width={1205} height={1305} draggable={false} />
           </Magnet>
         </FadeIn>
       </div>
@@ -113,53 +106,53 @@ function ServicesSection() {
   );
 }
 
-function ProjectCard({ project, index, progress, onProject }: { project: Project; index: number; progress: MotionValue<number>; onProject: (project: Project) => void }) {
-  const reducedMotion = useReducedMotion();
-  const targetScale = 1 - (projects.length - 1 - index) * 0.03;
-  const scale = useTransform(progress, [index / projects.length, 1], [1, targetScale]);
-  return (
-    <div className="project-slot" style={{ '--stack-offset': `${index * 28}px` } as CSSProperties}>
-      <motion.article className="project-card" style={{ scale: reducedMotion ? 1 : scale }} aria-labelledby={`project-${project.number}`}>
-        <div className="project-card-header">
-          <span className="project-number" aria-hidden="true">{project.number}</span>
-          <div className="project-name"><p>{project.category}</p><h3 id={`project-${project.number}`}>{project.name}</h3></div>
-          <button type="button" className="live-project-button" onClick={() => onProject(project)} aria-haspopup="dialog" aria-label={`查看项目：${project.name}`}>查看项目</button>
-        </div>
-        <div className="project-images">
-          <div className="project-images-left">
-            <img src={project.images[0]} alt={project.imageDescriptions[0]} loading="lazy" width={1280} height={720} />
-            <img src={project.images[1]} alt={project.imageDescriptions[1]} loading="lazy" width={1280} height={720} />
-          </div>
-          <img className="project-image-main" src={project.images[2]} alt={project.imageDescriptions[2]} loading="lazy" width={1280} height={720} />
-        </div>
-      </motion.article>
-    </div>
-  );
-}
-
 function ProjectsSection({ onProject }: { onProject: (project: Project) => void }) {
-  const stackRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: stackRef, offset: ['start start', 'end end'] });
   return (
     <section id="projects" className="projects-section">
       <FadeIn as="h2" className="hero-heading section-heading projects-heading" y={40}>Projects</FadeIn>
-      <div className="project-stack" ref={stackRef}>{projects.map((project, index) => <ProjectCard key={project.number} project={project} index={index} progress={scrollYProgress} onProject={onProject} />)}</div>
+      <ProjectStack projects={featuredProjects} onProject={onProject} />
     </section>
+  );
+}
+
+function WorksPage({ onContact, onProject }: { onContact: () => void; onProject: (project: Project) => void }) {
+  // Limit each stack to the homepage's three-card rhythm so sticky offsets stay bounded.
+  const groups = Array.from({ length: Math.ceil(projects.length / 3) }, (_, index) => projects.slice(index * 3, index * 3 + 3));
+  return (
+    <>
+      <header className="works-header">
+        <PortfolioNav worksPage onContact={onContact} />
+        <div className="works-intro">
+          <FadeIn as="p" className="works-eyebrow" delay={0.1} y={20}>SHROUD / PORTFOLIO</FadeIn>
+          <FadeIn as="h1" className="hero-heading section-heading works-title" delay={0.15} y={40}>All Works</FadeIn>
+          <FadeIn as="p" className="works-description" delay={0.3} y={20}>{String(projects.length).padStart(2, '0')} 项作品 · 从 AI 应用到本地工具，从工作流到创意表达。</FadeIn>
+          <FadeIn delay={0.4} y={20}><a className="live-project-button back-home-link" href="/">↖ 返回首页</a></FadeIn>
+        </div>
+      </header>
+      <section id="works-list" className="projects-section all-works-section" aria-label="所有作品">
+        <div className="works-stacks">{groups.map((group) => <ProjectStack key={group[0].id} projects={group} onProject={onProject} />)}</div>
+        <div className="works-footer"><a className="live-project-button back-home-link" href="/">↖ 返回首页</a><ContactButton onClick={onContact} /></div>
+      </section>
+    </>
   );
 }
 
 export default function App() {
   const [dialog, setDialog] = useState<DialogState>(null);
   const onContact = () => setDialog({ type: 'contact' });
+  const onProject = (project: Project) => setDialog({ type: 'project', project });
+  const worksPage = ['/works', '/works/', '/works/index.html'].includes(window.location.pathname);
   return (
     <>
-      <a className="skip-link" href="#about">跳转至正文</a>
+      <a className="skip-link" href={worksPage ? '#works-list' : '#about'}>跳转至正文</a>
       <main className="page-wrapper">
+        {worksPage ? <WorksPage onContact={onContact} onProject={onProject} /> : <>
         <HeroSection onContact={onContact} />
         <MarqueeSection />
         <AboutSection onContact={onContact} />
         <ServicesSection />
-        <ProjectsSection onProject={(project) => setDialog({ type: 'project', project })} />
+        <ProjectsSection onProject={onProject} />
+        </>}
       </main>
       <PortfolioDialog state={dialog} onClose={() => setDialog(null)} />
     </>

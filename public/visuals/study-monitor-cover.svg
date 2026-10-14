@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000">
+  <defs>
+    <radialGradient id="ambient"><stop stop-color="#8ab9df" stop-opacity=".35"/><stop offset="1" stop-color="#0c0c0c" stop-opacity="0"/></radialGradient>
+    <linearGradient id="silver" x2=".85" y2="1"><stop stop-color="#fff"/><stop offset=".4" stop-color="#d7e2ea"/><stop offset="1" stop-color="#788390"/></linearGradient>
+    <linearGradient id="fabric" x1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#dfdce9"/><stop offset="1" stop-color="#918ba6"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#41404e"/><stop offset=".55" stop-color="#16141d"/><stop offset="1" stop-color="#252530"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#d7e2ea"/><stop offset=".5" stop-color="#8ab9df"/><stop offset="1" stop-color="#64319b"/></linearGradient>
+    <filter id="shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".55"/></filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="20"/></filter>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#d7e2ea" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1200" height="1000" fill="#0f0f13"/>
+  <rect width="1200" height="1000" fill="url(#grid)"/>
+  <ellipse cx="600" cy="540" rx="600" ry="700" fill="url(#ambient)"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#d7e2ea" text-anchor="middle">
+    <text x="600" y="165" font-size="58" font-weight="800" letter-spacing="-2">STUDY MONITOR</text>
+    <text x="600" y="210" font-size="18" fill="#aeb0bf" letter-spacing="4">VISION MEETS LOCAL AI</text>
+  </g>
+  
+  <ellipse cx="600" cy="750" rx="225" ry="40" fill="#89b5d4" opacity=".25" filter="url(#glow)"/>
+  <g filter="url(#shadow)"><rect x="355" y="367" width="490" height="300" rx="65" fill="url(#glass)" stroke="#94afc9" stroke-width="2"/>
+  <path d="M435 367 470 315H605L640 367" fill="url(#silver)"/><circle cx="600" cy="517" r="120" fill="#1c2537" stroke="url(#silver)" stroke-width="22"/>
+  <circle cx="600" cy="517" r="80" fill="url(#accent)"/><circle cx="600" cy="517" r="47" fill="#111521"/><circle cx="577" cy="494" r="17" fill="#d7e2ea" opacity=".7"/></g>
+  <circle cx="774" cy="420" r="12" fill="#a9cbe9"/>
+  <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle"><rect x="395" y="830" width="410" height="56" rx="28" fill="#18151f" stroke="#8ab9df" stroke-opacity=".7"/><text x="600" y="865" fill="#d7e2ea" font-size="18" letter-spacing="3">OBSERVE → DETECT → EXPLAIN</text></g>
+  <g fill="#d7e2ea" font-family="Segoe UI, Arial, sans-serif" font-size="14" letter-spacing="3"><text x="50" y="960" opacity=".4">SHROUD / PROJECT VISUAL</text></g>
+</svg>

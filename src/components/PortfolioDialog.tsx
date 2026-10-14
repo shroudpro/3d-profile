@@ -77,10 +77,10 @@ export function PortfolioDialog({ state, onClose }: { state: DialogState; onClos
         <h2 id="dialog-title" className="hero-heading dialog-title">{state.type === 'contact' ? "Let's create." : state.project.name}</h2>
         {state.type === 'contact' ? <ContactForm /> : <>
           <div className="project-detail">
-            <span className="project-status">{state.project.status}</span>
+            {state.project.status && <span className="project-status">{state.project.status}</span>}
             <p>{state.project.summary}</p>
-            <div className="technology-list">{state.project.technologies.map((technology) => <span key={technology}>{technology}</span>)}</div>
-            <ul>{state.project.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+            {state.project.technologies.length > 0 && <div className="technology-list">{state.project.technologies.map((technology) => <span key={technology}>{technology}</span>)}</div>}
+            {state.project.features.length > 0 && <ul>{state.project.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>}
             {state.project.repository && <a className="repository-link" href={state.project.repository} target="_blank" rel="noopener noreferrer">查看 GitHub 仓库<ArrowUpRight size={18} /></a>}
           </div>
           <p className="visual-caption">项目功能与工作流示意</p>

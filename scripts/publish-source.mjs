@@ -58,7 +58,7 @@ await git(['check-ref-format', `refs/heads/${credential.branch}`]);
 await git(['add', '--all', '--', '.']);
 const tree = await git(['write-tree']);
 const changed = await git(['diff', '--cached', '--name-only']);
-if (changed) await git(['commit', '-m', 'Personalize Shroud portfolio']);
+if (changed) await git(['commit', '-m', 'Add all works page and smiling portrait']);
 const sha = await git(['rev-parse', 'HEAD']);
 if (await git(['rev-parse', 'HEAD^{tree}']) !== tree || await git(['status', '--porcelain'])) throw new Error('Source changed while committing.');
 await git(['push', credential.remote_url, `${sha}:refs/heads/${credential.branch}`], true);
@@ -68,18 +68,21 @@ if (remoteSha !== sha) throw new Error('Pushed source does not match the local c
 // Keep the staging directory for inspection; do not delete user workspace files.
 const stage = path.join(root, 'artifacts', `site-stage-${sha.slice(0, 12)}`);
 const output = path.join(stage, 'dist');
-await mkdir(path.join(output, 'assets'), { recursive: true });
-const index = await readFile(path.join(root, 'dist/index.html'), 'utf8');
-await writeFile(path.join(output, 'index.html'), index);
-await copyFile(path.join(root, 'dist/favicon.svg'), path.join(output, 'favicon.svg'));
-for (const [, asset] of index.matchAll(/(?:src|href)="\/(assets\/[^\"]+)"/g)) {
-  await copyFile(path.join(root, 'dist', asset), path.join(output, asset));
+const manifest = JSON.parse(await readFile(path.join(root, 'dist/.vite/manifest.json'), 'utf8'));
+const buildFiles = new Set(['index.html', 'works/index.html', 'favicon.svg']);
+// Use the current manifest so both HTML entries and shared chunks are included without stale builds.
+for (const entry of Object.values(manifest)) {
+  for (const file of [entry.file, ...(entry.css ?? []), ...(entry.assets ?? [])]) buildFiles.add(file);
+}
+for (const file of buildFiles) {
+  await mkdir(path.dirname(path.join(output, file)), { recursive: true });
+  await copyFile(path.join(root, 'dist', file), path.join(output, file));
 }
 await cp(path.join(root, 'dist/fonts'), path.join(output, 'fonts'), { recursive: true });
 await cp(path.join(root, 'dist/visuals'), path.join(output, 'visuals'), { recursive: true });
 await mkdir(path.join(output, 'images'), { recursive: true });
 // The template's original assets stay on disk; only active portfolio media is packaged.
-for (const name of ['portrait.png', 'moon.png', 'sculpture.png', 'lego.png', 'rings.png']) {
+for (const name of ['portrait-smile.png', 'moon.png', 'sculpture.png', 'lego.png', 'rings.png']) {
   await copyFile(path.join(root, 'dist/images', name), path.join(output, 'images', name));
 }
 await mkdir(path.join(stage, 'dist/.openai'), { recursive: true });
@@ -87,7 +90,9 @@ await copyFile(path.join(root, '.openai/hosting.json'), path.join(stage, 'dist/.
 const archive = path.join(root, 'artifacts', `site-${sha.slice(0, 12)}.tar.gz`);
 await run('tar', ['-C', stage, '-czf', archive, 'dist']);
 const listing = (await run('tar', ['-tzf', archive])).stdout;
-if (!listing.includes('dist/.openai/hosting.json') || !listing.includes('dist/index.html')) throw new Error('Deployment archive is incomplete.');
+for (const required of ['dist/.openai/hosting.json', 'dist/index.html', 'dist/works/index.html', 'dist/images/portrait-smile.png']) {
+  if (!listing.includes(required)) throw new Error(`Deployment archive is missing ${required}.`);
+}
 const result = { project_id: projectId, checkout_path: root, commit_sha: sha, archive };
 await writeFile(path.join(root, 'artifacts/site-workflow.json'), `${JSON.stringify(result, null, 2)}\n`);
 process.stdout.write(`${JSON.stringify(result)}\n`);
