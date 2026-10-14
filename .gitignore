@@ -1,0 +1,13 @@
+node_modules/
+dist/
+artifacts/
+*.local
+*.tsbuildinfo
+.sites-runtime/
+.sites-checkout/
+.sites-telemetry/
+.clone-ui/source/motionsites*
+.clone-ui/source/figma.html
+artifacts-font.css
+.clone-ui/source/original-previews/
+.clone-ui/source/optimized-previews/

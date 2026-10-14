@@ -1,0 +1,6 @@
+{
+  "source": "User supplied video and text specification",
+  "sourceDomAvailable": false,
+  "computedStyleCaptureAvailable": false,
+  "note": "Use explicit colors from brief and screenshot comparison. Exact DOM/style parity cannot be verified from video alone."
+}

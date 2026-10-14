@@ -1,0 +1,7 @@
+[
+  { "name": "hero", "cloneSelector": "#home", "videoTime": "0.0s", "type": "hero" },
+  { "name": "marquee", "cloneSelector": "#showreel", "videoTime": "1.4s", "type": "scroll-gallery" },
+  { "name": "about", "cloneSelector": "#about", "videoTime": "2.4s", "type": "scroll-reveal" },
+  { "name": "services", "cloneSelector": "#services", "videoTime": "3.3s", "type": "list" },
+  { "name": "projects", "cloneSelector": "#projects", "videoTime": "5.4s", "type": "sticky-stack" }
+]

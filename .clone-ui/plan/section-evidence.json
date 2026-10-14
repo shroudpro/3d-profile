@@ -1,0 +1,12 @@
+{
+  "hero": [
+    { "feature": "Four evenly spaced links; silver gradient uppercase heading; black background", "evidence": "docs/brief.txt: Hero Section; .clone-ui/source/.captures/video-start.png" },
+    { "feature": "Centered oversized 3D floating head covers the title; cursor magnet", "evidence": ".clone-ui/source/.captures/video-overview.png: first row; docs/brief.txt: Magnet" },
+    { "feature": "Three-line description bottom-left and gradient contact pill bottom-right", "evidence": ".clone-ui/source/.captures/video-start.png" }
+  ],
+  "marquee": [{ "feature": "Two opposing scroll-driven rows with 420x270 animated image tiles", "evidence": "docs/brief.txt: Marquee Section; .clone-ui/source/.captures/video-overview.png: second row" }],
+  "about": [{ "feature": "Moon, LEGO, smiley and arrow ornaments; centered heading, character reveal and contact pill", "evidence": "docs/brief.txt: About Section; .clone-ui/source/.captures/video-overview.png: second and third rows" }],
+  "services": [{ "feature": "White rounded section with five numbered service rows", "evidence": "docs/brief.txt: Services Section; .clone-ui/source/.captures/video-overview.png: third and fourth rows" }],
+  "projects": [{ "feature": "Dark rounded panel with three bordered cards, 40/60 image grids and live-project pills; cards overlap on scroll", "evidence": "docs/brief.txt: Projects Section; .clone-ui/source/.captures/video-overview.png: last two rows" }],
+  "interactionCompletion": [{ "feature": "Contact inquiry draft and project gallery dialogs", "evidence": "Root agent's stated completion of required buttons; no contact address or project destination supplied. Dialogs are additions for functional completion, not features observed in the video." }]
+}
