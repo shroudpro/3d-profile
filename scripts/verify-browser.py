@@ -37,12 +37,15 @@ def verify(page: Page, url: str) -> dict:
         page.goto(url, wait_until="networkidle")
         page.evaluate("() => document.fonts.ready")
         page.wait_for_timeout(1200)
-        assert page.title() == "Jack -- 3D Creator"
+        assert page.title() == "Shroud — AI 应用开发者"
+        assert "Shroud" in page.locator("h1").text_content()
+        assert page.locator(".service-row").count() == 4
         assert page.locator("main > section").count() == 5
         assert page.locator(".marquee-tile").count() == 63
         assert not page.evaluate("document.documentElement.scrollWidth > innerWidth"), f"Horizontal overflow at {width}px"
         heading_fits = page.locator("h1").evaluate("element => { const range=document.createRange(); range.selectNodeContents(element); return range.getBoundingClientRect().width <= element.clientWidth + 1; }")
         assert heading_fits, f"Clipped hero title at {width}px"
+        assert page.locator(".about-copy").evaluate("element => element.scrollWidth <= element.clientWidth + 1"), f"Chinese paragraph overflow at {width}px"
         page.screenshot(path=str(OUTPUT / f"hero-{width}.png"))
         sections = []
         for selector in ["#showreel", "#about", "#services", "#projects"]:
@@ -80,9 +83,12 @@ def verify(page: Page, url: str) -> dict:
     assert abs(cards[0]["top"] - 128) < 1 and abs(cards[1]["top"] - 156) < 1
     assert cards[0]["scale"] < 0.99 and cards[1]["scale"] < 1
     results["interactions"]["sticky_stack"] = cards
-    page.get_by_role("button", name="Live Project: Solaris Digital", exact=True).click()
+    page.get_by_role("button", name="查看项目：Quartus MCP", exact=True).click()
     expect(page.get_by_role("dialog")).to_be_visible()
     assert page.locator(".project-dialog-gallery img").count() == 3
+    expect(page.locator(".project-status")).to_have_text("Alpha")
+    expect(page.locator(".repository-link")).to_have_attribute("href", "https://github.com/shroudpro/Quartus-MCP")
+    page.screenshot(path=str(OUTPUT / "project-detail-personalized.png"))
     page.keyboard.press("Escape")
     expect(page.get_by_role("dialog")).not_to_be_visible()
 
@@ -95,15 +101,18 @@ def verify(page: Page, url: str) -> dict:
     assert magnet > 20
     results["interactions"]["portrait_magnet"] = {"displacement": magnet}
 
-    page.locator(".hero-bottom").get_by_role("button", name="Contact Me", exact=True).click()
+    page.locator(".hero-bottom").get_by_role("button", name="联系我", exact=True).click()
     expect(page.get_by_role("dialog")).to_be_visible()
     assert not page.locator("form").evaluate("form => form.checkValidity()")
-    page.get_by_label("Your name", exact=True).fill("Alex Taylor")
-    page.get_by_label("Email address", exact=True).fill("alex@example.com")
-    page.get_by_label("About your project", exact=True).fill("I would like a 3D motion design for a new product launch.")
-    page.get_by_role("button", name="Copy inquiry", exact=True).click()
-    expect(page.get_by_role("status")).to_contain_text("Inquiry copied")
-    draft = page.get_by_label("Your inquiry", exact=True).input_value()
+    expect(page.locator(".contact-links a").first).to_have_attribute("href", "mailto:shroudmail233@Gmail.com")
+    page.get_by_label("你的称呼", exact=True).fill("Alex Taylor")
+    page.get_by_label("回复邮箱", exact=True).fill("alex@example.com")
+    page.get_by_label("想聊的项目", exact=True).fill("希望交流一个新的 AI 应用开发项目与 Agent 工作流。")
+    page.get_by_role("button", name="复制咨询", exact=True).click()
+    expect(page.get_by_role("status")).to_contain_text("咨询内容已复制")
+    draft = page.get_by_label("咨询草稿", exact=True).input_value()
+    assert draft.startswith("你好，Shroud：")
+    page.screenshot(path=str(OUTPUT / "contact-personalized.png"))
     clipboard = page.evaluate("() => navigator.clipboard.readText()")
     # Windows normalizes clipboard line endings to CRLF; compare the message itself.
     assert clipboard.replace("\r\n", "\n") == draft.replace("\r\n", "\n"), "Clipboard text differs from the inquiry draft."
@@ -133,7 +142,7 @@ def main() -> None:
                 page = reduced.new_page()
                 page.goto(args.url, wait_until="networkidle")
                 assert average_opacity(page) == 1
-                assert page.locator(".marquee-tile").evaluate_all("images => images.every(image => image.src.endsWith('.webp'))")
+                assert page.locator(".marquee-tile").evaluate_all("images => images.every(image => image.src.endsWith('.svg'))")
                 scroll_to(page, 1100)
                 first = page.locator(".marquee-track").evaluate_all("elements => elements.map(element => element.style.transform)")
                 scroll_to(page, 1400)

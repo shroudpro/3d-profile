@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="ambient"><stop stop-color="#83c7f0" stop-opacity=".35"/><stop offset="1" stop-color="#0c0c0c" stop-opacity="0"/></radialGradient>
+    <linearGradient id="silver" x2=".85" y2="1"><stop stop-color="#fff"/><stop offset=".4" stop-color="#d7e2ea"/><stop offset="1" stop-color="#788390"/></linearGradient>
+    <linearGradient id="fabric" x1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#dfdce9"/><stop offset="1" stop-color="#918ba6"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#41404e"/><stop offset=".55" stop-color="#16141d"/><stop offset="1" stop-color="#252530"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#d7e2ea"/><stop offset=".5" stop-color="#83c7f0"/><stop offset="1" stop-color="#64319b"/></linearGradient>
+    <filter id="shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".55"/></filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="20"/></filter>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#d7e2ea" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#0f0f13"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <ellipse cx="600" cy="432" rx="600" ry="560" fill="url(#ambient)"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#d7e2ea" text-anchor="middle">
+    <text x="600" y="155" font-size="56" font-weight="800" letter-spacing="-2">ONE CONNECTED FLOW</text>
+    <text x="600" y="195" font-size="18" fill="#aeb0bf" letter-spacing="4">AGENT / MCP / QUARTUS</text>
+  </g>
+  
+  <path d="M600 270V620" stroke="#92bce6" stroke-width="3" stroke-dasharray="7 12"/>
+  <g filter="url(#shadow)" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle" font-size="32" font-weight="600">
+    <rect x="360" y="280" width="480" height="90" rx="24" fill="url(#glass)" stroke="#8095bc"/><text x="600" y="337" fill="#d7e2ea">AI AGENT</text>
+    <rect x="360" y="415" width="480" height="90" rx="24" fill="url(#silver)"/><text x="600" y="472" fill="#293244">MCP SERVER</text>
+    <rect x="360" y="550" width="480" height="90" rx="24" fill="url(#glass)" stroke="#8095bc"/><text x="600" y="607" fill="#d7e2ea">QUARTUS CLI</text>
+  </g>
+  <g fill="#d7e2ea" font-family="Segoe UI, Arial, sans-serif" font-size="14" letter-spacing="3"><text x="50" y="760" opacity=".4">SHROUD / PROJECT VISUAL</text></g>
+</svg>

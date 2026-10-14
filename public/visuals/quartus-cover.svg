@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000">
+  <defs>
+    <radialGradient id="ambient"><stop stop-color="#83cef2" stop-opacity=".35"/><stop offset="1" stop-color="#0c0c0c" stop-opacity="0"/></radialGradient>
+    <linearGradient id="silver" x2=".85" y2="1"><stop stop-color="#fff"/><stop offset=".4" stop-color="#d7e2ea"/><stop offset="1" stop-color="#788390"/></linearGradient>
+    <linearGradient id="fabric" x1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#dfdce9"/><stop offset="1" stop-color="#918ba6"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#41404e"/><stop offset=".55" stop-color="#16141d"/><stop offset="1" stop-color="#252530"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#d7e2ea"/><stop offset=".5" stop-color="#83cef2"/><stop offset="1" stop-color="#64319b"/></linearGradient>
+    <filter id="shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".55"/></filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="20"/></filter>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#d7e2ea" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1200" height="1000" fill="#0f0f13"/>
+  <rect width="1200" height="1000" fill="url(#grid)"/>
+  <ellipse cx="600" cy="540" rx="600" ry="700" fill="url(#ambient)"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#d7e2ea" text-anchor="middle">
+    <text x="600" y="165" font-size="58" font-weight="800" letter-spacing="-2">QUARTUS MCP</text>
+    <text x="600" y="210" font-size="18" fill="#aeb0bf" letter-spacing="4">AI MEETS LOCAL ENGINEERING</text>
+  </g>
+  
+  <ellipse cx="600" cy="745" rx="265" ry="40" fill="#669ac9" opacity=".25" filter="url(#glow)"/>
+  <g filter="url(#shadow)"><path d="M387 475l-40 26v26M813 475l40 26v26" stroke="url(#silver)" stroke-width="9" stroke-linecap="round"/><path d="M415 492l-40 26v26M785 492l40 26v26" stroke="url(#silver)" stroke-width="9" stroke-linecap="round"/><path d="M443 509l-40 26v26M757 509l40 26v26" stroke="url(#silver)" stroke-width="9" stroke-linecap="round"/><path d="M471 526l-40 26v26M729 526l40 26v26" stroke="url(#silver)" stroke-width="9" stroke-linecap="round"/><path d="M499 543l-40 26v26M701 543l40 26v26" stroke="url(#silver)" stroke-width="9" stroke-linecap="round"/><path d="M527 560l-40 26v26M673 560l40 26v26" stroke="url(#silver)" stroke-width="9" stroke-linecap="round"/><path d="M555 577l-40 26v26M645 577l40 26v26" stroke="url(#silver)" stroke-width="9" stroke-linecap="round"/><path d="M583 594l-40 26v26M617 594l40 26v26" stroke="url(#silver)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M365 460 600 600V655L365 515Z" fill="#181a24" stroke="#667488"/>
+    <path d="M600 600 835 460V515L600 655Z" fill="#222733" stroke="#667488"/>
+    <path d="M365 460 600 320 835 460 600 600Z" fill="url(#glass)" stroke="#a1adc1" stroke-width="3"/>
+    <path d="M500 460 600 400 700 460 600 520Z" fill="url(#silver)" stroke="#fff" stroke-opacity=".7"/>
+  </g>
+  <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle"><text x="600" y="470" fill="#343d4d" font-size="33" font-weight="800">MCP</text></g>
+  <path d="M260 430H345M855 430H940M370 290 465 350M830 290 735 350" stroke="#83c2ed" stroke-opacity=".4" stroke-width="3"/>
+  <g fill="#9bcef6"><circle cx="260" cy="430" r="9"/><circle cx="940" cy="430" r="9"/><circle cx="370" cy="290" r="6"/><circle cx="830" cy="290" r="6"/></g>
+  <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle"><rect x="395" y="830" width="410" height="56" rx="28" fill="#18151f" stroke="#85bce5" stroke-opacity=".7"/><text x="600" y="865" fill="#d7e2ea" font-size="18" letter-spacing="3">VHDL / VWF / CLI</text></g>
+  <g fill="#d7e2ea" font-family="Segoe UI, Arial, sans-serif" font-size="14" letter-spacing="3"><text x="50" y="960" opacity=".4">SHROUD / PROJECT VISUAL</text></g>
+</svg>

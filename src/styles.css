@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Kanit', 'Microsoft YaHei', 'PingFang SC', sans-serif;
   color: #D7E2EA;
   background: #0C0C0C;
   font-synthesis: none;
@@ -38,19 +38,19 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .hero-nav a, .hero-nav button { min-height: 44px; min-width: 44px; display: flex; align-items: center; transition: opacity 0.2s; }
 .hero-nav a:hover, .hero-nav button:hover { opacity: 0.7; }
 .hero-heading-wrap { margin-top: 24px; padding-inline: var(--gutter); overflow: hidden; }
-.hero-title { font-size: 14vw; font-weight: 900; text-transform: uppercase; letter-spacing: -0.025em; line-height: 1; white-space: nowrap; width: 100%; }
+.hero-title { font-size: 11.7vw; font-weight: 900; text-transform: uppercase; letter-spacing: -0.025em; line-height: 1; white-space: nowrap; width: 100%; }
 .hero-portrait { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(78vw, 340px); z-index: 10; }
 .hero-portrait img { width: 100%; height: auto; user-select: none; }
 .magnet-content { will-change: transform; }
 .hero-bottom { margin-top: auto; padding: 0 var(--gutter) 28px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; z-index: 20; gap: 20px; }
-.hero-description { max-width: 160px; color: var(--silver); font-size: clamp(0.75rem, 1.4vw, 1.5rem); font-weight: 300; text-transform: uppercase; letter-spacing: 0.025em; line-height: 1.4; }
+.hero-description { max-width: 160px; color: var(--silver); font-size: clamp(0.75rem, 1.4vw, 1.5rem); font-weight: 300; letter-spacing: 0.025em; line-height: 1.65; }
 .contact-button { border: 0; border-radius: 999px; background: linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%); box-shadow: 0 4px 4px rgba(181, 1, 167, 0.25), inset 4px 4px 12px #7721B1; outline: 2px solid #FFFFFF; outline-offset: -3px; padding: 12px 32px; min-height: 44px; color: #FFFFFF; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; white-space: nowrap; transition: transform 0.25s, filter 0.25s, box-shadow 0.25s; }
 .contact-button:hover { transform: translateY(-3px); filter: brightness(1.15); box-shadow: 0 6px 24px rgba(181, 1, 167, 0.25), inset 4px 4px 12px #7721B1; }
 .contact-button:active { transform: translateY(0); }
 .contact-button:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 5px; }
 .marquee-section { padding-block: 96px 40px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
 .marquee-track { display: flex; gap: 12px; width: max-content; will-change: transform; }
-.marquee-tile { width: 420px; height: 270px; flex: 0 0 420px; object-fit: cover; border-radius: 16px; background: var(--ink); }
+.marquee-tile { width: 420px; height: 270px; flex: 0 0 420px; object-fit: contain; border-radius: 16px; background: #0f0f13; }
 .about-section { min-height: 100svh; padding: 100px var(--gutter); display: grid; place-items: center; position: relative; isolation: isolate; }
 .about-content { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 40px; position: relative; z-index: 1; }
 .about-copy { max-width: 672px; padding-inline: 16px; color: var(--silver); font-weight: 500; text-align: center; line-height: 1.65; font-size: clamp(1rem, 2vw, 1.6rem); }
@@ -75,7 +75,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .project-stack { position: relative; }
 .project-slot { height: 85svh; min-height: 590px; position: sticky; top: calc(var(--stack-top) + var(--stack-offset)); }
 .project-card { border: 2px solid var(--silver); border-radius: var(--panel-radius); padding: 16px; background: var(--ink); transform-origin: center top; }
-.project-card-header { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; margin-bottom: 24px; }
+.project-card-header { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: center; margin-bottom: 24px; }
 .project-number { color: var(--silver); }
 .project-name p { font-size: clamp(0.75rem, 2.2vw, 2rem); text-transform: uppercase; font-weight: 500; margin-bottom: 10px; }
 .project-name h3 { font-size: clamp(0.8rem, 2vw, 1.75rem); font-weight: 300; }
@@ -84,6 +84,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .project-images { display: grid; grid-template-columns: 40% 1fr; gap: 12px; height: min(53svh, 560px); min-height: 310px; }
 .project-images-left { display: grid; grid-template-rows: 40% 1fr; gap: 12px; min-height: 0; }
 .project-images img { width: 100%; height: 100%; min-height: 0; object-fit: cover; border-radius: max(24px, calc(var(--panel-radius) - 8px)); }
+.project-images-left img { object-fit: contain; background: #0f0f13; }
 .portfolio-dialog { width: min(880px, calc(100vw - 32px)); max-height: calc(100svh - 48px); margin: auto; padding: 0; color: var(--silver); background: var(--ink); border: 1px solid rgba(215, 226, 234, 0.35); border-radius: 32px; overscroll-behavior: contain; }
 .portfolio-dialog::backdrop { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(12px); }
 .dialog-content { padding: 32px; }
@@ -96,6 +97,16 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(215, 226, 234, 0.4); }
 .contact-form .contact-button { align-self: flex-start; }
 .draft-label { display: flex; flex-direction: column; gap: 10px; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 16px 24px; }
+.contact-links a, .repository-link { display: inline-flex; align-items: center; gap: 8px; font-size: 16px; color: var(--silver); overflow-wrap: anywhere; }
+.contact-links a:hover, .repository-link:hover { opacity: 0.7; }
+.project-detail { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; margin-bottom: 32px; line-height: 1.8; font-weight: 300; }
+.project-status { border: 1px solid rgba(215, 226, 234, 0.3); border-radius: 999px; padding: 4px 14px; font-size: 13px; }
+.technology-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.technology-list span { padding: 4px 12px; border-radius: 8px; background: rgba(215, 226, 234, 0.08); font-size: 13px; }
+.project-detail ul { list-style: disc; padding-left: 20px; }
+.project-detail li + li { margin-top: 8px; }
+.visual-caption { color: rgba(215, 226, 234, 0.55); font-size: 13px; margin-bottom: 16px; }
 .project-dialog-gallery { display: grid; gap: 16px; }
 .project-dialog-gallery img { width: 100%; height: auto; border-radius: 24px; }
 .skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; background: var(--silver); color: var(--ink); padding: 12px 20px; border-radius: 8px; transform: translateY(-160%); }
@@ -104,7 +115,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 @media (min-width: 640px) {
   :root { --panel-radius: 50px; }
   .hero-heading-wrap { margin-top: 16px; }
-  .hero-title { font-size: 15vw; }
+  .hero-title { font-size: 12.5vw; }
   .hero-portrait { top: auto; bottom: 12%; transform: translateX(-50%); width: min(51vw, 74svh, 740px); }
   .hero-bottom { padding-bottom: 32px; }
   .hero-description { max-width: 220px; }
@@ -132,7 +143,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   :root { --gutter: 40px; --panel-radius: 60px; --stack-top: 128px; }
   .hero-nav { font-size: 18px; padding-top: 32px; }
   .hero-heading-wrap { margin-top: -30px; }
-  .hero-title { font-size: 16vw; }
+  .hero-title { font-size: 13.3vw; }
   .hero-bottom { padding-bottom: 40px; }
   .hero-description { max-width: 300px; }
   .contact-button { font-size: 20px; padding: 16px 52px; }
@@ -158,7 +169,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 
 @media (min-width: 1024px) {
   .hero-nav { font-size: 1.55rem; padding-inline: 6.1vw; }
-  .hero-title { font-size: 17.5vw; }
+  .hero-title { font-size: 13.7vw; }
   .ornament-moon, .ornament-lego { width: 252px; }
   .ornament-smile { width: 216px; }
   .ornament-arrow { width: 264px; }
@@ -173,7 +184,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 639px) {
   .about-section { min-height: 860px; padding-block: 190px 220px; }
   .about-ornament { opacity: 0.9; }
-  .project-card-header { grid-template-columns: auto 1fr; }
+  .project-card-header { grid-template-columns: auto minmax(0, 1fr); }
   .live-project-button { grid-column: 2; justify-self: start; margin-top: -4px; }
   .project-number { grid-row: 1 / 3; align-self: start; }
   .project-images { height: 45svh; }

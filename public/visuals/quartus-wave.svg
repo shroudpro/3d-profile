@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="ambient"><stop stop-color="#9acbf3" stop-opacity=".35"/><stop offset="1" stop-color="#0c0c0c" stop-opacity="0"/></radialGradient>
+    <linearGradient id="silver" x2=".85" y2="1"><stop stop-color="#fff"/><stop offset=".4" stop-color="#d7e2ea"/><stop offset="1" stop-color="#788390"/></linearGradient>
+    <linearGradient id="fabric" x1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#dfdce9"/><stop offset="1" stop-color="#918ba6"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#41404e"/><stop offset=".55" stop-color="#16141d"/><stop offset="1" stop-color="#252530"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#d7e2ea"/><stop offset=".5" stop-color="#9acbf3"/><stop offset="1" stop-color="#64319b"/></linearGradient>
+    <filter id="shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".55"/></filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="20"/></filter>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#d7e2ea" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#0f0f13"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <ellipse cx="600" cy="432" rx="600" ry="560" fill="url(#ambient)"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#d7e2ea" text-anchor="middle">
+    <text x="600" y="155" font-size="56" font-weight="800" letter-spacing="-2">SIGNALS INTO STORIES</text>
+    <text x="600" y="195" font-size="18" fill="#aeb0bf" letter-spacing="4">SIMULATION WORKFLOW / CONCEPT</text>
+  </g>
+  
+  <rect x="260" y="260" width="680" height="380" rx="36" fill="url(#glass)" stroke="#9ab2da" stroke-opacity=".4" filter="url(#shadow)"/>
+  <g stroke="#d7e2ea" stroke-opacity=".08"><path d="M310 350H890M310 450H890M310 550H890M390 310V600M500 310V600M610 310V600M720 310V600M830 310V600"/></g>
+  <path d="M310 385H370V315H450V385H540V315H625V385H710V315H795V385H890" fill="none" stroke="#9bcef6" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M310 490H430V420H565V490H700V420H835V490H890" fill="none" stroke="#b79bec" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M310 585H510V515H720V585H890" fill="none" stroke="#d7e2ea" stroke-width="7" stroke-linejoin="round"/>
+  <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle"><rect x="395" y="670" width="410" height="56" rx="28" fill="#18151f" stroke="#92b3e3" stroke-opacity=".7"/><text x="600" y="705" fill="#d7e2ea" font-size="18" letter-spacing="3">LOCAL TOOLS, CLEAR OUTPUTS</text></g>
+  <g fill="#d7e2ea" font-family="Segoe UI, Arial, sans-serif" font-size="14" letter-spacing="3"><text x="50" y="760" opacity=".4">SHROUD / PROJECT VISUAL</text></g>
+</svg>

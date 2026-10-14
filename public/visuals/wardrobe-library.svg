@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="ambient"><stop stop-color="#d294b5" stop-opacity=".35"/><stop offset="1" stop-color="#0c0c0c" stop-opacity="0"/></radialGradient>
+    <linearGradient id="silver" x2=".85" y2="1"><stop stop-color="#fff"/><stop offset=".4" stop-color="#d7e2ea"/><stop offset="1" stop-color="#788390"/></linearGradient>
+    <linearGradient id="fabric" x1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#dfdce9"/><stop offset="1" stop-color="#918ba6"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#41404e"/><stop offset=".55" stop-color="#16141d"/><stop offset="1" stop-color="#252530"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#d7e2ea"/><stop offset=".5" stop-color="#d294b5"/><stop offset="1" stop-color="#64319b"/></linearGradient>
+    <filter id="shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".55"/></filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="20"/></filter>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#d7e2ea" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#0f0f13"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <ellipse cx="600" cy="432" rx="600" ry="560" fill="url(#ambient)"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#d7e2ea" text-anchor="middle">
+    <text x="600" y="155" font-size="56" font-weight="800" letter-spacing="-2">YOUR CLOSET</text>
+    <text x="600" y="195" font-size="18" fill="#aeb0bf" letter-spacing="4">EDIT / ORGANIZE / COMBINE</text>
+  </g>
+  <rect x="295" y="263" width="180" height="158" rx="22" fill="url(#glass)" stroke="#d7e2ea" stroke-opacity=".2"/><g transform="translate(385 337) scale(0.44)" filter="url(#shadow)">
+  <path d="M-80-85-40-112Q0-88 40-112L80-85 125-28 77 4 60-19 65 119Q0 135-65 119L-60-19-77 4-125-28Z" fill="url(#fabric)" stroke="#f0eef7" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M-40-112Q0-66 40-112" fill="none" stroke="#848094" stroke-width="7"/>
+  <path d="M-55 5-46 105M56 5 47 105M-23-77-12 111" stroke="#a39daf" stroke-opacity=".5" fill="none"/>
+  <path d="M-69-79-103-29M70-79 104-29" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+  </g><rect x="510" y="263" width="180" height="158" rx="22" fill="url(#glass)" stroke="#d7e2ea" stroke-opacity=".2"/><g transform="translate(600 337) scale(0.44)" filter="url(#shadow)">
+  <path d="M-80-85-40-112Q0-88 40-112L80-85 125-28 77 4 60-19 65 119Q0 135-65 119L-60-19-77 4-125-28Z" fill="url(#accent)" stroke="#f0eef7" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M-40-112Q0-66 40-112" fill="none" stroke="#848094" stroke-width="7"/>
+  <path d="M-55 5-46 105M56 5 47 105M-23-77-12 111" stroke="#a39daf" stroke-opacity=".5" fill="none"/>
+  <path d="M-69-79-103-29M70-79 104-29" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+  </g><rect x="725" y="263" width="180" height="158" rx="22" fill="url(#glass)" stroke="#d7e2ea" stroke-opacity=".2"/><g transform="translate(815 337) scale(0.44)" filter="url(#shadow)">
+  <path d="M-80-85-40-112Q0-88 40-112L80-85 125-28 77 4 60-19 65 119Q0 135-65 119L-60-19-77 4-125-28Z" fill="url(#fabric)" stroke="#f0eef7" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M-40-112Q0-66 40-112" fill="none" stroke="#848094" stroke-width="7"/>
+  <path d="M-55 5-46 105M56 5 47 105M-23-77-12 111" stroke="#a39daf" stroke-opacity=".5" fill="none"/>
+  <path d="M-69-79-103-29M70-79 104-29" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+  </g><rect x="295" y="448" width="180" height="158" rx="22" fill="url(#glass)" stroke="#d7e2ea" stroke-opacity=".2"/><g transform="translate(385 522) scale(0.44)" filter="url(#shadow)">
+  <path d="M-80-85-40-112Q0-88 40-112L80-85 125-28 77 4 60-19 65 119Q0 135-65 119L-60-19-77 4-125-28Z" fill="url(#accent)" stroke="#f0eef7" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M-40-112Q0-66 40-112" fill="none" stroke="#848094" stroke-width="7"/>
+  <path d="M-55 5-46 105M56 5 47 105M-23-77-12 111" stroke="#a39daf" stroke-opacity=".5" fill="none"/>
+  <path d="M-69-79-103-29M70-79 104-29" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+  </g><rect x="510" y="448" width="180" height="158" rx="22" fill="url(#glass)" stroke="#d7e2ea" stroke-opacity=".2"/><g transform="translate(600 522) scale(0.44)" filter="url(#shadow)">
+  <path d="M-80-85-40-112Q0-88 40-112L80-85 125-28 77 4 60-19 65 119Q0 135-65 119L-60-19-77 4-125-28Z" fill="url(#fabric)" stroke="#f0eef7" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M-40-112Q0-66 40-112" fill="none" stroke="#848094" stroke-width="7"/>
+  <path d="M-55 5-46 105M56 5 47 105M-23-77-12 111" stroke="#a39daf" stroke-opacity=".5" fill="none"/>
+  <path d="M-69-79-103-29M70-79 104-29" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+  </g><rect x="725" y="448" width="180" height="158" rx="22" fill="url(#glass)" stroke="#d7e2ea" stroke-opacity=".2"/><g transform="translate(815 522) scale(0.44)" filter="url(#shadow)">
+  <path d="M-80-85-40-112Q0-88 40-112L80-85 125-28 77 4 60-19 65 119Q0 135-65 119L-60-19-77 4-125-28Z" fill="url(#accent)" stroke="#f0eef7" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M-40-112Q0-66 40-112" fill="none" stroke="#848094" stroke-width="7"/>
+  <path d="M-55 5-46 105M56 5 47 105M-23-77-12 111" stroke="#a39daf" stroke-opacity=".5" fill="none"/>
+  <path d="M-69-79-103-29M70-79 104-29" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+  </g><g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle"><rect x="395" y="655" width="410" height="56" rx="28" fill="#18151f" stroke="#c792d8" stroke-opacity=".7"/><text x="600" y="690" fill="#d7e2ea" font-size="18" letter-spacing="3">A WORKFLOW FOR EVERY LOOK</text></g>
+  <g fill="#d7e2ea" font-family="Segoe UI, Arial, sans-serif" font-size="14" letter-spacing="3"><text x="50" y="760" opacity=".4">SHROUD / PROJECT VISUAL</text></g>
+</svg>

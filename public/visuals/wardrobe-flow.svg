@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="ambient"><stop stop-color="#bf93eb" stop-opacity=".35"/><stop offset="1" stop-color="#0c0c0c" stop-opacity="0"/></radialGradient>
+    <linearGradient id="silver" x2=".85" y2="1"><stop stop-color="#fff"/><stop offset=".4" stop-color="#d7e2ea"/><stop offset="1" stop-color="#788390"/></linearGradient>
+    <linearGradient id="fabric" x1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#dfdce9"/><stop offset="1" stop-color="#918ba6"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#41404e"/><stop offset=".55" stop-color="#16141d"/><stop offset="1" stop-color="#252530"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#d7e2ea"/><stop offset=".5" stop-color="#bf93eb"/><stop offset="1" stop-color="#64319b"/></linearGradient>
+    <filter id="shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".55"/></filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="20"/></filter>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#d7e2ea" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#0f0f13"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <ellipse cx="600" cy="432" rx="600" ry="560" fill="url(#ambient)"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#d7e2ea" text-anchor="middle">
+    <text x="600" y="155" font-size="56" font-weight="800" letter-spacing="-2">IMPORT &amp; REVIEW</text>
+    <text x="600" y="195" font-size="18" fill="#aeb0bf" letter-spacing="4">VISION / GENERATION / APPROVAL</text>
+  </g>
+  
+  <path d="M320 440H880" stroke="#b592cc" stroke-width="2" stroke-dasharray="7 12" opacity=".5"/>
+  <g filter="url(#shadow)">
+    <rect x="250" y="300" width="210" height="265" rx="28" fill="url(#glass)" stroke="#9584a7" stroke-opacity=".5" transform="rotate(-10 355 430)"/>
+    <rect x="740" y="300" width="210" height="265" rx="28" fill="url(#glass)" stroke="#9584a7" stroke-opacity=".5" transform="rotate(10 845 430)"/>
+    <rect x="475" y="270" width="250" height="310" rx="30" fill="#2f253b" stroke="#d8bcf0" stroke-opacity=".65"/>
+  </g>
+  <g transform="translate(355 430) scale(0.55)" filter="url(#shadow)">
+  <path d="M-80-85-40-112Q0-88 40-112L80-85 125-28 77 4 60-19 65 119Q0 135-65 119L-60-19-77 4-125-28Z" fill="url(#fabric)" stroke="#f0eef7" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M-40-112Q0-66 40-112" fill="none" stroke="#848094" stroke-width="7"/>
+  <path d="M-55 5-46 105M56 5 47 105M-23-77-12 111" stroke="#a39daf" stroke-opacity=".5" fill="none"/>
+  <path d="M-69-79-103-29M70-79 104-29" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+  </g><g transform="translate(600 425) scale(0.7)" filter="url(#shadow)">
+  <path d="M-80-85-40-112Q0-88 40-112L80-85 125-28 77 4 60-19 65 119Q0 135-65 119L-60-19-77 4-125-28Z" fill="url(#fabric)" stroke="#f0eef7" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M-40-112Q0-66 40-112" fill="none" stroke="#848094" stroke-width="7"/>
+  <path d="M-55 5-46 105M56 5 47 105M-23-77-12 111" stroke="#a39daf" stroke-opacity=".5" fill="none"/>
+  <path d="M-69-79-103-29M70-79 104-29" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+  </g><g transform="translate(845 430) scale(0.55)" filter="url(#shadow)">
+  <path d="M-80-85-40-112Q0-88 40-112L80-85 125-28 77 4 60-19 65 119Q0 135-65 119L-60-19-77 4-125-28Z" fill="url(#fabric)" stroke="#f0eef7" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M-40-112Q0-66 40-112" fill="none" stroke="#848094" stroke-width="7"/>
+  <path d="M-55 5-46 105M56 5 47 105M-23-77-12 111" stroke="#a39daf" stroke-opacity=".5" fill="none"/>
+  <path d="M-69-79-103-29M70-79 104-29" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+  </g>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#d7e2ea" text-anchor="middle"><text x="355" y="640">01 / IMPORT</text><text x="600" y="640">02 / REVIEW</text><text x="845" y="640">03 / SAVE</text></g>
+  <g fill="#d7e2ea" font-family="Segoe UI, Arial, sans-serif" font-size="14" letter-spacing="3"><text x="50" y="760" opacity=".4">SHROUD / PROJECT VISUAL</text></g>
+</svg>

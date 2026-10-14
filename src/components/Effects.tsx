@@ -88,14 +88,18 @@ function Character({ character, index, total, progress }: { character: string; i
 export function AnimatedText({ text }: { text: string }) {
   const ref = useRef<HTMLParagraphElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start 0.8', 'end 0.2'] });
+  // Segment Chinese and Latin text without forcing a whole Chinese sentence onto one line.
+  const words = Array.from(new Intl.Segmenter('zh-CN', { granularity: 'word' }).segment(text), (part) => part.segment);
+  const totalCharacters = Array.from(text).length;
   let characterIndex = 0;
   return (
     <p ref={ref} className="about-copy" aria-label={text}>
       <span aria-hidden="true">
-        {text.split(' ').map((word, wordIndex) => {
+        {words.map((word, wordIndex) => {
           const start = characterIndex;
-          characterIndex += word.length + 1;
-          return <span key={wordIndex}><span className="inline-block">{Array.from(word).map((character, index) => <Character key={index} character={character} index={start + index} total={text.length} progress={scrollYProgress} />)}</span>{' '}</span>;
+          characterIndex += Array.from(word).length;
+          if (/^\s+$/.test(word)) return <span key={wordIndex}>{word}</span>;
+          return <span className="inline-block" key={wordIndex}>{Array.from(word).map((character, index) => <Character key={index} character={character} index={start + index} total={totalCharacters} progress={scrollYProgress} />)}</span>;
         })}
       </span>
     </p>

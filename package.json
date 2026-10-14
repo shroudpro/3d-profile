@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/create-project-visuals.mjs && tsc -b && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "assets:sync": "node scripts/sync-assets.mjs",
-    "assets:optimize": "node scripts/optimize-previews.mjs"
+    "assets:optimize": "node scripts/optimize-previews.mjs",
+    "visuals:build": "node scripts/create-project-visuals.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",

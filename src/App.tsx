@@ -2,39 +2,39 @@ import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import type { MotionValue } from 'framer-motion';
-import { aboutText, previews, projects, services } from './data';
+import { aboutText, previews, profile, projects, services } from './data';
 import type { Project } from './data';
 import { AnimatedText, FadeIn, Magnet } from './components/Effects';
 import { PortfolioDialog } from './components/PortfolioDialog';
 import type { DialogState } from './components/PortfolioDialog';
 
 function ContactButton({ onClick }: { onClick: () => void }) {
-  return <button type="button" onClick={onClick} className="contact-button" aria-haspopup="dialog">Contact Me</button>;
+  return <button type="button" onClick={onClick} className="contact-button" aria-haspopup="dialog">联系我</button>;
 }
 
 function HeroSection({ onContact }: { onContact: () => void }) {
   return (
     <section id="home" className="hero-section">
       <FadeIn delay={0} y={-20}>
-        <nav className="hero-nav" aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#services">Price</a>
-          <a href="#projects">Projects</a>
-          <button type="button" onClick={onContact} aria-haspopup="dialog">Contact</button>
+        <nav className="hero-nav" aria-label="主导航">
+          <a href="#about">关于我</a>
+          <a href="#services">技术专长</a>
+          <a href="#projects">精选作品</a>
+          <button type="button" onClick={onContact} aria-haspopup="dialog">联系</button>
         </nav>
       </FadeIn>
       <div className="hero-heading-wrap">
-        <FadeIn as="h1" className="hero-heading hero-title" delay={0.15} y={40}>Hi, i&apos;m jack</FadeIn>
+        <FadeIn as="h1" className="hero-heading hero-title" delay={0.15} y={40}>{profile.headline}</FadeIn>
       </div>
       <div className="hero-portrait">
         <FadeIn delay={0.6} y={30}>
           <Magnet padding={150} strength={3}>
-            <img src="/images/portrait.png" alt="Jack's expressive 3D character with swept black hair and silver earrings" width={1450} height={1570} draggable={false} />
+            <img src="/images/portrait.png" alt="Shroud 网站的 3D 角色主视觉" width={1450} height={1570} draggable={false} />
           </Magnet>
         </FadeIn>
       </div>
       <div className="hero-bottom">
-        <FadeIn as="p" className="hero-description" delay={0.35} y={20}>a 3d creator driven by crafting striking and unforgettable projects</FadeIn>
+        <FadeIn as="p" className="hero-description" delay={0.35} y={20}>{profile.tagline}</FadeIn>
         <FadeIn delay={0.5} y={20}><ContactButton onClick={onContact} /></FadeIn>
       </div>
     </section>
@@ -74,8 +74,8 @@ function MarqueeSection() {
   }, [reducedMotion]);
 
   return (
-    <section id="showreel" ref={sectionRef} className="marquee-section" aria-label="A collection of animated design explorations">
-      {rows.map((row, rowIndex) => <div key={rowIndex} ref={rowIndex === 0 ? firstRef : secondRef} className="marquee-track">{Array.from({ length: 3 }, (_, copy) => row.map(({ src, name }, tileIndex) => <img key={`${copy}-${tileIndex}`} className="marquee-tile" src={reducedMotion ? src.replace(/\.gif$/, '.webp') : src} alt={copy === 1 ? `${name} website design preview` : ''} width={420} height={270} loading="lazy" decoding="async" draggable={false} />))}</div>)}
+    <section id="showreel" ref={sectionRef} className="marquee-section" aria-label="作品与工作流视觉展示">
+      {rows.map((row, rowIndex) => <div key={rowIndex} ref={rowIndex === 0 ? firstRef : secondRef} className="marquee-track">{Array.from({ length: 3 }, (_, copy) => row.map(({ src, description }, tileIndex) => <img key={`${copy}-${tileIndex}`} className="marquee-tile" src={src} alt={copy === 1 ? description : ''} width={420} height={270} loading="lazy" decoding="async" draggable={false} />))}</div>)}
     </section>
   );
 }
@@ -102,7 +102,7 @@ function AboutSection({ onContact }: { onContact: () => void }) {
 function ServicesSection() {
   return (
     <section id="services" className="services-section">
-      <FadeIn as="h2" className="section-heading services-heading" y={40}>Services</FadeIn>
+      <FadeIn as="h2" className="section-heading services-heading" y={40}>Expertise</FadeIn>
       <div className="service-list">
         {services.map(({ name, description }, index) => <FadeIn key={name} className="service-row" delay={index * 0.1}>
           <span className="service-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
@@ -123,9 +123,7 @@ function ProjectCard({ project, index, progress, onProject }: { project: Project
         <div className="project-card-header">
           <span className="project-number" aria-hidden="true">{project.number}</span>
           <div className="project-name"><p>{project.category}</p><h3 id={`project-${project.number}`}>{project.name}</h3></div>
-          {project.liveUrl
-            ? <a className="live-project-button" href={project.liveUrl} target="_blank" rel="noopener noreferrer">Live Project</a>
-            : <button type="button" className="live-project-button" onClick={() => onProject(project)} aria-haspopup="dialog" aria-label={`Live Project: ${project.name}`}>Live Project</button>}
+          <button type="button" className="live-project-button" onClick={() => onProject(project)} aria-haspopup="dialog" aria-label={`查看项目：${project.name}`}>查看项目</button>
         </div>
         <div className="project-images">
           <div className="project-images-left">
@@ -144,7 +142,7 @@ function ProjectsSection({ onProject }: { onProject: (project: Project) => void 
   const { scrollYProgress } = useScroll({ target: stackRef, offset: ['start start', 'end end'] });
   return (
     <section id="projects" className="projects-section">
-      <FadeIn as="h2" className="hero-heading section-heading projects-heading" y={40}>Project</FadeIn>
+      <FadeIn as="h2" className="hero-heading section-heading projects-heading" y={40}>Projects</FadeIn>
       <div className="project-stack" ref={stackRef}>{projects.map((project, index) => <ProjectCard key={project.number} project={project} index={index} progress={scrollYProgress} onProject={onProject} />)}</div>
     </section>
   );
@@ -155,7 +153,7 @@ export default function App() {
   const onContact = () => setDialog({ type: 'contact' });
   return (
     <>
-      <a className="skip-link" href="#about">Skip to content</a>
+      <a className="skip-link" href="#about">跳转至正文</a>
       <main className="page-wrapper">
         <HeroSection onContact={onContact} />
         <MarqueeSection />

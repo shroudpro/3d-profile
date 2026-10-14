@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000">
+  <defs>
+    <radialGradient id="ambient"><stop stop-color="#ca91e9" stop-opacity=".35"/><stop offset="1" stop-color="#0c0c0c" stop-opacity="0"/></radialGradient>
+    <linearGradient id="silver" x2=".85" y2="1"><stop stop-color="#fff"/><stop offset=".4" stop-color="#d7e2ea"/><stop offset="1" stop-color="#788390"/></linearGradient>
+    <linearGradient id="fabric" x1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#dfdce9"/><stop offset="1" stop-color="#918ba6"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#41404e"/><stop offset=".55" stop-color="#16141d"/><stop offset="1" stop-color="#252530"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#d7e2ea"/><stop offset=".5" stop-color="#ca91e9"/><stop offset="1" stop-color="#64319b"/></linearGradient>
+    <filter id="shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".55"/></filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="20"/></filter>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#d7e2ea" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1200" height="1000" fill="#0f0f13"/>
+  <rect width="1200" height="1000" fill="url(#grid)"/>
+  <ellipse cx="600" cy="540" rx="600" ry="700" fill="url(#ambient)"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#d7e2ea" text-anchor="middle">
+    <text x="600" y="165" font-size="58" font-weight="800" letter-spacing="-2">WARDROBE</text>
+    <text x="600" y="210" font-size="18" fill="#aeb0bf" letter-spacing="4">LOCAL-FIRST / AI</text>
+  </g>
+  
+  <ellipse cx="600" cy="780" rx="220" ry="45" fill="#c286df" opacity=".3" filter="url(#glow)"/>
+  <ellipse cx="600" cy="600" rx="270" ry="140" fill="none" stroke="url(#accent)" stroke-width="3" transform="rotate(-30 600 600)" opacity=".65"/>
+  <rect x="439" y="312" width="325" height="395" rx="40" fill="url(#glass)" stroke="#a48abe" stroke-opacity=".3" transform="rotate(12 600 500)"/>
+  <g transform="translate(600 532) scale(1.55)" filter="url(#shadow)">
+  <path d="M-80-85-40-112Q0-88 40-112L80-85 125-28 77 4 60-19 65 119Q0 135-65 119L-60-19-77 4-125-28Z" fill="url(#fabric)" stroke="#f0eef7" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M-40-112Q0-66 40-112" fill="none" stroke="#848094" stroke-width="7"/>
+  <path d="M-55 5-46 105M56 5 47 105M-23-77-12 111" stroke="#a39daf" stroke-opacity=".5" fill="none"/>
+  <path d="M-69-79-103-29M70-79 104-29" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+  </g>
+  <g fill="url(#accent)"><circle cx="410" cy="400" r="18"/><circle cx="780" cy="680" r="12"/><circle cx="800" cy="350" r="7"/></g>
+  <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle"><rect x="395" y="830" width="410" height="56" rx="28" fill="#18151f" stroke="#be84df" stroke-opacity=".7"/><text x="600" y="865" fill="#d7e2ea" font-size="18" letter-spacing="3">PHOTO → REVIEW → STYLE</text></g>
+  <g fill="#d7e2ea" font-family="Segoe UI, Arial, sans-serif" font-size="14" letter-spacing="3"><text x="50" y="960" opacity=".4">SHROUD / PROJECT VISUAL</text></g>
+</svg>

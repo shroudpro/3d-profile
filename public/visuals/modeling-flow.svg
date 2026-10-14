@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="ambient"><stop stop-color="#af9bec" stop-opacity=".35"/><stop offset="1" stop-color="#0c0c0c" stop-opacity="0"/></radialGradient>
+    <linearGradient id="silver" x2=".85" y2="1"><stop stop-color="#fff"/><stop offset=".4" stop-color="#d7e2ea"/><stop offset="1" stop-color="#788390"/></linearGradient>
+    <linearGradient id="fabric" x1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#dfdce9"/><stop offset="1" stop-color="#918ba6"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#41404e"/><stop offset=".55" stop-color="#16141d"/><stop offset="1" stop-color="#252530"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#d7e2ea"/><stop offset=".5" stop-color="#af9bec"/><stop offset="1" stop-color="#64319b"/></linearGradient>
+    <filter id="shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".55"/></filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="20"/></filter>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#d7e2ea" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#0f0f13"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <ellipse cx="600" cy="432" rx="600" ry="560" fill="url(#ambient)"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#d7e2ea" text-anchor="middle">
+    <text x="600" y="155" font-size="56" font-weight="800" letter-spacing="-2">SOLVE, THEN TELL</text>
+    <text x="600" y="195" font-size="18" fill="#aeb0bf" letter-spacing="4">PROBLEM / PLAN / DELIVERY</text>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="320" y="290" width="240" height="300" rx="26" fill="url(#glass)" stroke="#8976ab" transform="rotate(-12 440 440)"/>
+    <rect x="660" y="290" width="240" height="300" rx="26" fill="url(#glass)" stroke="#8976ab" transform="rotate(12 780 440)"/>
+    <rect x="460" y="260" width="280" height="340" rx="28" fill="url(#silver)"/>
+  </g>
+  <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle" font-weight="700"><text x="600" y="357" fill="#322a40" font-size="40">PLAN</text><path d="M503 400H697M503 435H652M503 470H687M503 505H641" stroke="#857a96" stroke-width="9" stroke-linecap="round"/><text x="380" y="437" fill="#d7e2ea" font-size="26">CSV</text><text x="825" y="437" fill="#d7e2ea" font-size="25">PDF</text></g>
+  <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle"><rect x="395" y="655" width="410" height="56" rx="28" fill="#18151f" stroke="#b193d9" stroke-opacity=".7"/><text x="600" y="690" fill="#d7e2ea" font-size="18" letter-spacing="3">A REUSABLE AI WORKFLOW</text></g>
+  <g fill="#d7e2ea" font-family="Segoe UI, Arial, sans-serif" font-size="14" letter-spacing="3"><text x="50" y="760" opacity=".4">SHROUD / PROJECT VISUAL</text></g>
+</svg>

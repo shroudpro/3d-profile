@@ -58,7 +58,7 @@ await git(['check-ref-format', `refs/heads/${credential.branch}`]);
 await git(['add', '--all', '--', '.']);
 const tree = await git(['write-tree']);
 const changed = await git(['diff', '--cached', '--name-only']);
-if (changed) await git(['commit', '-m', 'Build Jack 3D creator portfolio']);
+if (changed) await git(['commit', '-m', 'Personalize Shroud portfolio']);
 const sha = await git(['rev-parse', 'HEAD']);
 if (await git(['rev-parse', 'HEAD^{tree}']) !== tree || await git(['status', '--porcelain'])) throw new Error('Source changed while committing.');
 await git(['push', credential.remote_url, `${sha}:refs/heads/${credential.branch}`], true);
@@ -67,7 +67,21 @@ if (remoteSha !== sha) throw new Error('Pushed source does not match the local c
 
 // Keep the staging directory for inspection; do not delete user workspace files.
 const stage = path.join(root, 'artifacts', `site-stage-${sha.slice(0, 12)}`);
-await cp(path.join(root, 'dist'), path.join(stage, 'dist'), { recursive: true });
+const output = path.join(stage, 'dist');
+await mkdir(path.join(output, 'assets'), { recursive: true });
+const index = await readFile(path.join(root, 'dist/index.html'), 'utf8');
+await writeFile(path.join(output, 'index.html'), index);
+await copyFile(path.join(root, 'dist/favicon.svg'), path.join(output, 'favicon.svg'));
+for (const [, asset] of index.matchAll(/(?:src|href)="\/(assets\/[^\"]+)"/g)) {
+  await copyFile(path.join(root, 'dist', asset), path.join(output, asset));
+}
+await cp(path.join(root, 'dist/fonts'), path.join(output, 'fonts'), { recursive: true });
+await cp(path.join(root, 'dist/visuals'), path.join(output, 'visuals'), { recursive: true });
+await mkdir(path.join(output, 'images'), { recursive: true });
+// The template's original assets stay on disk; only active portfolio media is packaged.
+for (const name of ['portrait.png', 'moon.png', 'sculpture.png', 'lego.png', 'rings.png']) {
+  await copyFile(path.join(root, 'dist/images', name), path.join(output, 'images', name));
+}
 await mkdir(path.join(stage, 'dist/.openai'), { recursive: true });
 await copyFile(path.join(root, '.openai/hosting.json'), path.join(stage, 'dist/.openai/hosting.json'));
 const archive = path.join(root, 'artifacts', `site-${sha.slice(0, 12)}.tar.gz`);
